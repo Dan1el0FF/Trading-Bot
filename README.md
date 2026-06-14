@@ -52,3 +52,4 @@ Resultados:
 
 Una vez teniendo el setup completo solo debemos correr el código main en una computadora 24/7, sin embargo como trabajo futuro sería comprar una raspberry pi 4 o 5 con 4 u 8 de ram y descargar trader workstation ahí junto con los códigos de python para correr el sistema e incluso existe otro programa más ligero que puede sustituir a trader workstation llamado 'IB Gateway'. Al probar el código con datos de mercado del pasado se obtuvo un rendimiento anual de 8%, pero hay que considerar que en mi filtro fundamental solo utilicé empresas bancarias o de tecnología ya que eran las que daban los mejores resultados con el código actual. También, se encontró que el mejor rendimiento fue usar el modo swing.
 
+nota: ahora mismo el puerto esta colocado para la cuenta demo, si requieres hacer trading real hay que cambiar al número que aparece en api - configuración.
