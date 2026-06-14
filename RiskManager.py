@@ -140,5 +140,5 @@ class RiskManager:
             )
             return bars if bars else None
         except Exception as e:
-            print(f"⚠️ Error obteniendo barras de {company}: {e}")
+            print(f"Error obteniendo barras de {company}: {e}")
             return None
