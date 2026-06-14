@@ -21,9 +21,9 @@ class FundamentalFilter:
                 ok = self._passorfail(company, info, hist)
                 if ok:
                     self.watchlist.append(company)
-                    print(f"✅ {company} pasó")
+                    print(f" {company} pasó")
             except Exception as e:
-                print(f"⚠️ {company} error: {e}")
+                print(f" {company} error: {e}")
 
         print(f'Watchlist final para modo {self.mode}, {len(self.watchlist)}: {self.watchlist}')
 
@@ -49,29 +49,29 @@ class FundamentalFilter:
             raise ValueError(f"Modo no válido: {self.mode}. Usa 'swing' o 'daytrade'")
 
         if volume is None or volume < min_volume:
-            print(f"❌ {company} no pasó por volumen: {volume}")
+            print(f" {company} no pasó por volumen: {volume}")
             return False
 
         if cap is None or cap < min_cap:
-            print(f"❌ {company} no pasó por market cap: {cap}")
+            print(f" {company} no pasó por market cap: {cap}")
             return False
 
         # PEG solo aplica en swing
         if self.mode == "swing":
             if peg is None or peg < 0.6 or peg > 1.7:
-                print(f"❌ {company} no pasó por PEG: {peg}")
+                print(f" {company} no pasó por PEG: {peg}")
                 return False
 
         if len(hist) < 2:
-            print(f"❌ {company} no pasó por historial insuficiente")
+            print(f" {company} no pasó por historial insuficiente")
             return False
 
         variacion = hist["Close"].pct_change().abs().mean() * 100
         if self.mode == "swing" and variacion > max_var:
-            print(f"❌ {company} no pasó por variación: {variacion:.2f}%")
+            print(f" {company} no pasó por variación: {variacion:.2f}%")
             return False
         elif self.mode == "daytrade" and (variacion < 2.0 or variacion > max_var):
-            print(f"❌ {company} no pasó por variación: {variacion:.2f}%")
+            print(f" {company} no pasó por variación: {variacion:.2f}%")
             return False
 
         atr     = (hist["High"] - hist["Low"]).tail(14).mean()
@@ -79,7 +79,7 @@ class FundamentalFilter:
         atr_pct = (atr / precio) * 100
 
         if atr_pct < min_atr or atr_pct > max_atr:
-            print(f"❌ {company} no pasó por ATR%: {atr_pct:.2f}%")
+            print(f" {company} no pasó por ATR%: {atr_pct:.2f}%")
             return False
 
         return True
