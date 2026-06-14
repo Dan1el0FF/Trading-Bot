@@ -1,5 +1,5 @@
 # Trading-Bot
-Este proyecto funciona utilizando como base a interactive brokers por lo que debemos tener una cuenta creada y en especifico necesitaremos descargar la aplicación de escritorio 'Trader Workstation' que obtenedremos mediante el siguiente link:
+Este proyecto funciona utilizando como base a interactive brokers por lo que debemos tener una cuenta creada y en especifico necesitaremos descargar la aplicación de escritorio 'Trader Workstation' que obtendremos mediante el siguiente link:
 https://www.interactivebrokers.com/es/trading/download-tws.php
 
 Una vez decargado necesitamos abrir la aplicación y activar la siguiente configuración:
