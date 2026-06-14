@@ -64,15 +64,15 @@ def main():
     broker  = IBKRBroker(ib=ib)
     CAPITAL = broker.get_account_value()
 
-    print(f"💰 Capital disponible: ${CAPITAL:,.2f}")
-    print(f"📊 Modo: {MODE}")
+    print(f"Capital disponible: ${CAPITAL:,.2f}")
+    print(f"Modo: {MODE}")
 
     ff = FundamentalFilter(mode=MODE)
     se = SignalEngine(ib=ib, mode=MODE)
     rm = RiskManager(ib=ib, capital=CAPITAL, mode=MODE)
 
     # ── Filtro fundamental ─────────────────────────
-    print("\n🔍 Ejecutando filtro fundamental...")
+    print("\nEjecutando filtro fundamental...")
     ff.start_filtering()
 
     print(f"Watchlist lista: {len(ff.watchlist)} empresas")
@@ -90,7 +90,7 @@ def main():
             horas, minutos = tiempo_para_apertura()
 
             print(
-                f"\n⏰ Mercado cerrado — "
+                f"\nMercado cerrado — "
                 f"{ahora.strftime('%A %d/%m %H:%M ET')}"
             )
 
@@ -98,7 +98,7 @@ def main():
                 f"Faltan {horas}h {minutos}m para abrir"
             )
 
-            print("💤 Esperando 15 minutos...\n")
+            print("Esperando 15 minutos...\n")
 
             time.sleep(15 * 60)
             continue
@@ -130,7 +130,7 @@ def main():
 
                 del posiciones_abiertas[company]
 
-                print(f"🚪 {company} cerrado — {motivo}")
+                print(f"{company} cerrado — {motivo}")
 
         # ── Buscar nuevas señales ───────────────────
         if len(posiciones_abiertas) < 3:
@@ -149,7 +149,7 @@ def main():
 
                     posiciones_abiertas[company] = order
 
-        print("\n⏳ Esperando 15 minutos...")
+        print("\nEsperando 15 minutos...")
         time.sleep(15 * 60)
 
 
